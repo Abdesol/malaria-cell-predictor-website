@@ -14,11 +14,11 @@ export default function Home() {
       </Head>
 
       <div className="flex flex-col items-center px-5 md:px-20">
-        <div className="font-quicksand text-3xl font-bold p-5">
+        <div className="font-quicksand text-3xl font-bold py-5">
           Malaria From Cell Predictor
         </div>
 
-        <div className="font-quicksand text-2xl font-semibold p-5">
+        <div className="font-quicksand text-[24px] font-[500] pb-5">
           Provide an image of the sample cell you want to check up on below and
           click "Predict" to see if the cell is holding malaria.
         </div>
