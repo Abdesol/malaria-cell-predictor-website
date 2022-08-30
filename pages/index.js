@@ -23,7 +23,7 @@ export default function Home() {
       .then((res) => {
         res.json().then((res) => {
           setOutput(
-            `The cell image ${res.probability}% likely contains malaria parasites.`
+            `The cell image ${res.probability*100}% likely contains malaria parasites.`
           );
         });
       })
