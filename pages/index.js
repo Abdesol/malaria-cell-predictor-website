@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState();
+  const [output, setOutput] = useState("");
 
   const imageChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -11,8 +12,24 @@ export default function Home() {
     }
   };
 
-  const removeSelectedImage = () => {
-    setSelectedImage();
+  const predictClicked = async () => {
+    const img = document.getElementById("file_input").files[0];
+    const formData = new FormData();
+    formData.append("image", img);
+    await fetch("http://127.0.0.1:8000/predict", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => {
+        res.json().then((res) => {
+          setOutput(
+            `The cell image ${res.probability}% likely contains malaria parasites.`
+          );
+        });
+      })
+      .catch((err) => {
+        setOutput("Error occured while trying to predict!");
+      });
   };
 
   return (
@@ -31,14 +48,21 @@ export default function Home() {
           Malaria From Cell Predictor
         </div>
 
-        <div className="font-quicksand text-[24px] font-[500] pb-5">
+        <div className="font-quicksand text-xl font-[500] pb-5">
           Provide an image of the sample cell you want to check up on below and
           click "Predict" to see if the cell is holding malaria.
         </div>
 
         <div className="flex flex-col items-center py-5">
+          <label
+            className="block mb-2 text-lg font-medium font-quicksand text-gray-900 dark:text-gray-300"
+            htmlFor="file_input"
+          >
+            Upload Image
+          </label>
           <input
-            clasName="btn"
+            className="block w-full text-lg text-gray-900 font-quicksand bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            id="file_input"
             saccept=".png, .jpg"
             type="file"
             onChange={imageChange}
@@ -46,27 +70,23 @@ export default function Home() {
 
           {selectedImage && (
             <div className="flex flex-col items-center">
-              <div className="cursor-pointer relative m-4 h-[250px] w-[250px] md:h-[500px] md:w-[500px]">
+              <div className="cursor-pointer relative m-4 h-[400px] w-[400px] md:h-[500px] md:w-[500px]">
                 <Image src={URL.createObjectURL(selectedImage)} layout="fill" />
               </div>
-              <button
-                className="btn font-quicksand text-lg "
-                onClick={removeSelectedImage}
-              >
-                Remove This Image
-              </button>
             </div>
           )}
         </div>
         {selectedImage && (
-          <div>
+          <div className="flex flex-col items-center">
             <button
               className="btn font-quicksand text-lg"
-              onClick={removeSelectedImage}
+              onClick={predictClicked}
             >
               Predict
             </button>
-            
+            <div className="font-quicksand text-xl font-semibold py-5 text-center">
+              {output.toString()}
+            </div>
           </div>
         )}
       </div>
