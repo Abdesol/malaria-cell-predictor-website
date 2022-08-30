@@ -10,5 +10,5 @@ module.exports = {
       'quicksand': ["Quicksand", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
