@@ -40,7 +40,7 @@ export default function Home() {
         <title>Malaria From Cell Predictor</title>
         <meta
           name="description"
-          http-equiv="Content-Security-Policy"
+          httpEquiv="Content-Security-Policy"
           content="You can use this website to detect malaria from cell."
         />
         <link rel="icon" href="/favicon.ico" />
