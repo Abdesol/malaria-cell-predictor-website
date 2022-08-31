@@ -16,7 +16,7 @@ export default function Home() {
     const img = document.getElementById("file_input").files[0];
     const formData = new FormData();
     formData.append("image", img);
-    await fetch("http://127.0.0.1:8000/predict", {
+    await fetch("http://147.182.130.115:8000/predict", {
       method: "POST",
       body: formData,
     })
