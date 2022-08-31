@@ -40,6 +40,7 @@ export default function Home() {
         <title>Malaria From Cell Predictor</title>
         <meta
           name="description"
+          http-equiv="Content-Security-Policy"
           content="You can use this website to detect malaria from cell."
         />
         <link rel="icon" href="/favicon.ico" />
@@ -73,7 +74,11 @@ export default function Home() {
           {selectedImage && (
             <div className="flex flex-col items-center">
               <div className="cursor-pointer relative m-4 h-[400px] w-[400px] md:h-[500px] md:w-[500px]">
-                <Image src={URL.createObjectURL(selectedImage)} alt="" layout="fill" />
+                <Image
+                  src={URL.createObjectURL(selectedImage)}
+                  alt=""
+                  layout="fill"
+                />
               </div>
             </div>
           )}
