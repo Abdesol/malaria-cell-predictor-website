@@ -23,7 +23,9 @@ export default function Home() {
       .then((res) => {
         res.json().then((res) => {
           setOutput(
-            `The cell image ${res.probability*100}% likely contains malaria parasites.`
+            `The cell image ${
+              res.probability * 100
+            }% likely contains malaria parasites.`
           );
         });
       })
@@ -89,6 +91,18 @@ export default function Home() {
             </div>
           </div>
         )}
+      </div>
+      <div className="text-xl font-quicksand font-semibold my-10 text-center">
+        Made by
+        <a
+          href="https://abdesol.me/"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="text-blue-500"
+        >
+          {" "}
+          Abdella Solomon❤️
+        </a>
       </div>
     </div>
   );
