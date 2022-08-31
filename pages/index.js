@@ -42,6 +42,7 @@ export default function Home() {
           name="description"
           content="You can use this website to detect malaria from cell."
         />
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
