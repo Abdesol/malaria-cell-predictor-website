@@ -13,10 +13,11 @@ export default function Home() {
   };
 
   const predictClicked = async () => {
+    setOutput("Predicting...");
     const img = document.getElementById("file_input").files[0];
     const formData = new FormData();
     formData.append("image", img);
-    await fetch("http://147.182.130.115:8000/predict", {
+    await fetch("http://127.0.0.1:8000/predict", {
       method: "POST",
       body: formData,
     })
@@ -42,7 +43,6 @@ export default function Home() {
           name="description"
           content="You can use this website to detect malaria from cell."
         />
-        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -91,9 +91,6 @@ export default function Home() {
             >
               Predict
             </button>
-            <div className="font-quicksand text-xl font-semibold py-5 text-center">
-              {output.toString()}
-            </div>
           </div>
         )}
       </div>
@@ -108,6 +105,9 @@ export default function Home() {
           {" "}
           Abdella Solomon❤️
         </a>
+      </div>
+      <div className="font-quicksand text-xl font-semibold py-5 text-center">
+        {output.toString()}
       </div>
     </div>
   );
