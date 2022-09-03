@@ -58,13 +58,13 @@ export default function Home() {
 
         <div className="flex flex-col items-center py-5">
           <label
-            className="block mb-2 text-lg font-medium font-quicksand text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-lg font-medium font-quicksand text-gray-900"
             htmlFor="file_input"
           >
             Upload Image
           </label>
           <input
-            className="block w-full text-lg text-gray-900 font-quicksand bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            className="block w-full text-lg text-gray-900 font-quicksand bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none"
             id="file_input"
             saccept=".png, .jpg"
             type="file"
@@ -103,7 +103,7 @@ export default function Home() {
           className="text-blue-500"
         >
           {" "}
-          Abdella Solomon❤️
+          EthioAI
         </a>
       </div>
       <div className="font-quicksand text-xl font-semibold py-5 text-center">
