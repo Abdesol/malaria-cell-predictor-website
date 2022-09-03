@@ -97,7 +97,7 @@ export default function Home() {
       <div className="text-xl font-quicksand font-semibold my-10 text-center">
         Made by
         <a
-          href="https://abdesol.me/"
+          href="https://ethioai.vercel.app/"
           rel="noopener noreferrer"
           target="_blank"
           className="text-blue-500"
