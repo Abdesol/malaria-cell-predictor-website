@@ -94,6 +94,9 @@ export default function Home() {
           </div>
         )}
       </div>
+      <div className="font-quicksand text-xl font-semibold py-5 text-center">
+        {output.toString()}
+      </div>
       <div className="text-xl font-quicksand font-semibold my-10 text-center">
         Made by
         <a
@@ -105,9 +108,6 @@ export default function Home() {
           {" "}
           EthioAI
         </a>
-      </div>
-      <div className="font-quicksand text-xl font-semibold py-5 text-center">
-        {output.toString()}
       </div>
     </div>
   );
